@@ -1,22 +1,19 @@
-@use './variables' as *;
-@use './mixins' as *;
-
 html {
   scroll-behavior: smooth;
 
-  font-family: Mont, sans-serif;
+  font-family: sans-serif;
   font-size: 14px;
   font-weight: 600;
   line-height: 21px;
-  color: $color-text-main;
+  color: var(--color-text-main);
   letter-spacing: 0;
 
-  background-color: $color-bg;
+  background-color: var(--color-bg);
 }
 
 button {
-  color: $color-text-main;
-  background-color: $color-bg;
+  color: var(--color-text-main);
+  background-color: var(--color-bg);
 }
 
 h1 {

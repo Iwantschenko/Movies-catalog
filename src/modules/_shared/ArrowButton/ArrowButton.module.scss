@@ -1,0 +1,42 @@
+.arrow {
+  cursor: pointer;
+  background-image: url(../../../assets/icons/icon-arrow-left-white.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &Up {
+    rotate: 90deg;
+  }
+
+  &Down {
+    rotate: -90deg;
+  }
+
+  &Left {
+    rotate: 0deg;
+  }
+
+  &Right {
+    rotate: 180deg;
+  }
+
+  &Disabled {
+    background-image: url(../../../assets/icons/icon-arrow-left-grey.svg);
+  }
+
+  &Button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: var(--color-card);
+
+    &Disabled {
+      cursor: auto;
+      border: 1px solid var(--color-element);
+    }
+
+    &:not([disabled]):hover {
+      background-color: var(--color-icon);
+    }
+  }
+}

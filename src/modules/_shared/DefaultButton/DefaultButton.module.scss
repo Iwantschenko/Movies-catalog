@@ -1,0 +1,18 @@
+.defaultButton {
+  cursor: pointer;
+
+  width: 100%;
+  height: 100%;
+  border: none;
+
+  background-color: var(--color-accent);
+
+  &:not([disabled]):hover {
+    background-color: #a378ff;
+  }
+
+  &Selected {
+    cursor: auto;
+    background-color: var(--color-card);
+  }
+}

@@ -1,10 +1,23 @@
 .MovieInfo {
-  padding: 1rem;
-  border: 1px solid --var(--color-card);
-  border-radius: 8px;
-  
-   &.active {
-    border-color: var(--color-card);
+  padding: 1rem 0;
+
+  &Row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: left;
+
+    min-width: 200px;
+  }
+
+  &Buttons {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+
+    @include on-tablet {
+      width: 40px;
+      height: 40px;
+    }
   }
 }
-

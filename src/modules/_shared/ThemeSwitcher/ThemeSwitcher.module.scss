@@ -1,0 +1,31 @@
+.themeSwitcher {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 100%;
+  border: none;
+
+  text-decoration: none;
+
+  @include on-desktop {
+    width: 64px;
+  }
+
+  &Icon {
+    width: 30px;
+    height: 30px;
+
+    @include on-tablet {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &:hover {
+    @include img-hover-scale(1.2);
+  }
+}

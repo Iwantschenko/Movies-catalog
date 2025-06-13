@@ -1,0 +1,43 @@
+.catalogPageSwitch {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin-top: 8px;
+
+  &Buttons {
+    display: flex;
+    gap: 16px;
+    height: 32px;
+
+    &Arrow {
+      width: 32px;
+    }
+
+    &Page {
+      display: flex;
+      gap: 8px;
+
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        aspect-ratio: 1 / 1;
+        width: 32px;
+        padding: 0;
+      }
+
+      .paginationDots {
+        pointer-events: none;
+        user-select: none;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 32px;
+
+        color: #888;
+      }
+    }
+  }
+}

@@ -1,6 +1,5 @@
 import type { Movie } from '@models/Movie';
 import styles from './MovieInfo.module.scss';
-import { ArrowButton } from '../ArrowButton';
 
 interface Props {
   movie: Movie;
@@ -8,13 +7,28 @@ interface Props {
 
 export const MovieInfo: React.FC<Props> = ({ movie }) => {
   return (
-    <article className={styles.MovieInfo}>
-      <div className={styles.MovieInfoRow}>
-        <div className={styles.MovieInfoButtons}>
-          <ArrowButton direction="Down" click={() => {}} />
+    <div className={styles.MovieInfo}>
+      <h4 className="">
+        Title: <span className={styles.MovieInfoText}>{movie.title}</span>
+      </h4>
+      <h4 className="">
+        Year of publication:
+        <span className={styles.MovieInfoText}>{movie.releaseYear}</span>
+      </h4>
+      <h4 className="">
+        Video Format :
+        <span className={styles.MovieInfoText}>{movie.format}</span>
+      </h4>
+      <h4 className="">
+        Actors:
+        <div className={styles.MovieInfoActorColumns}>
+          {movie.stars.map((actor, i) => (
+            <div key={i} className={styles.MovieInfoText}>
+              {actor}
+            </div>
+          ))}
         </div>
-        <h3 className={styles.MovieInfomovieTitle}>{movie.title}</h3>
-      </div>
-    </article>
+      </h4>
+    </div>
   );
 };

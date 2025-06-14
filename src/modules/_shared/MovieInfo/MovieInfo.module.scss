@@ -1,23 +1,25 @@
 .MovieInfo {
-  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 
-  &Row {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: left;
+  padding: 10px;
 
-    min-width: 200px;
+  background-attachment: fixed;
+
+  &Text {
+    color: var(--color-text-secondary);
   }
 
-  &Buttons {
-    flex-shrink: 0;
-    width: 30px;
-    height: 30px;
+  &ActorColumns {
+    column-count: 1; 
 
     @include on-tablet {
-      width: 40px;
-      height: 40px;
+      column-count: 2; 
+    }
+
+     @include on-desktop {
+      column-count: 3; 
     }
   }
 }

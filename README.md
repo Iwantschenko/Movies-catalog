@@ -21,7 +21,7 @@ The app supports importing movie data from a `.txt` file and is fully containeri
 
 📦 DockerHub: [https://hub.docker.com/r/iwantschenko/movies](https://hub.docker.com/r/iwantschenko/movies)
 
-📄 Example file: [`sample_movies.txt`]([https://drive.google.com/drive/u/0/home](https://drive.google.com/file/d/11MleDhIwjyIt4vc6AWN7G8oE8NIo4Nsw/view?usp=sharing))
+📄 Example file: [`sample_movies.txt`](https://drive.google.com/file/d/11MleDhIwjyIt4vc6AWN7G8oE8NIo4Nsw/view?usp=sharing)
 ---
 
 ## 🛠 Getting Started

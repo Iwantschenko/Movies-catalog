@@ -2,12 +2,11 @@ import type { Movie } from '@models/Movie';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 const AUTH_TOKEN = import.meta.env.VITE_AUTH_TOKEN;
-const API_URL = import.meta.env.VITE_API_URL;
 
 export const updateMovieThunk = createAsyncThunk(
   'Update',
   async (newMovie: Movie) => {
-    const response = await fetch(`${API_URL}/movies/${newMovie.id}`, {
+    const response = await fetch(`/api/movies/${newMovie.id}`, {
       method: 'PATCH',
       headers: {
         Authorization: AUTH_TOKEN,

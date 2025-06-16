@@ -2,14 +2,13 @@ import type { Movie } from '@models/Movie';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 const AUTH_TOKEN = import.meta.env.VITE_AUTH_TOKEN;
-const API_URL = import.meta.env.VITE_API_URL;
 
 type NewMoviePayload = Omit<Movie, 'id'>;
 
 export const addMovieThunk = createAsyncThunk(
   'movies/add',
   async (newMovie: NewMoviePayload, thunkAPI) => {
-    const response = await fetch(`${API_URL}/movies`, {
+    const response = await fetch(`/api/movies`, {
       method: 'POST',
       headers: {
         Authorization: AUTH_TOKEN,

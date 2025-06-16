@@ -1,7 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import type { GetMoviesThunkResponseType } from './getMovieThunk';
 const AUTH_TOKEN = import.meta.env.VITE_AUTH_TOKEN;
-const API_URL = import.meta.env.VITE_API_URL;
 
 export const importMovieThunk = createAsyncThunk(
   'ImportMovieFile',
@@ -10,7 +9,7 @@ export const importMovieThunk = createAsyncThunk(
 
     formData.append('movies', file);
 
-    const response = await fetch(`${API_URL}/movies/import`, {
+    const response = await fetch(`/api/movies/import`, {
       method: 'POST',
       headers: {
         Authorization: AUTH_TOKEN,

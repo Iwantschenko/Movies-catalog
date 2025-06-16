@@ -4,7 +4,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import type { RootState } from '@store/store';
 
 const AUTH_TOKEN = import.meta.env.VITE_AUTH_TOKEN;
-const API_URL = import.meta.env.VITE_API_URL;
 
 export interface GetMoviesThunkResponseType {
   data: Movie[];
@@ -44,7 +43,7 @@ export const getMovieThunk = createAsyncThunk<
     ),
   );
 
-  const url = `${API_URL}/movies?${searchParams.toString()}`;
+  const url = `/api/movies?${searchParams.toString()}`;
 
   const response = await fetch(url, {
     method: 'GET',

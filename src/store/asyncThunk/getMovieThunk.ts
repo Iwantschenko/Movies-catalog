@@ -16,7 +16,7 @@ export const getMovieThunk = createAsyncThunk<
   void,
   { state: RootState }
 >('Movies', async (_, thunkAPI) => {
-  const { page, sort } = thunkAPI.getState().searchParams;
+  const { page, sort, query } = thunkAPI.getState().searchParams;
 
   const perPage = 5;
   const offset = (page - 1) * perPage;
@@ -28,6 +28,7 @@ export const getMovieThunk = createAsyncThunk<
       sort: 'title',
       order: sort,
     }),
+    ...(query && { search: query }),
   };
 
   const searchParams = new URLSearchParams(

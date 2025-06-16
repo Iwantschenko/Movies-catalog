@@ -15,12 +15,14 @@ import { getMovieThunk } from '@store/asyncThunk/getMovieThunk';
 export const MoviesCatalog = () => {
   const { movies, total, AddMovie, importMovies } = useMovies();
   const { openModal, modal, closeModal } = useModal();
-  const { page, sort } = useSelector((state: RootState) => state.searchParams);
+  const { page, sort, query } = useSelector(
+    (state: RootState) => state.searchParams,
+  );
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     dispatch(getMovieThunk());
-  }, [page, sort]);
+  }, [page, sort, query]);
 
   return (
     <section className={styles.Catalog}>

@@ -1,0 +1,30 @@
+.MovieInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  padding: 10px;
+
+  background-attachment: fixed;
+
+  &Text {
+    color: var(--color-text-secondary);
+  }
+
+  &ActorColumns {
+    column-count: 1; 
+
+    @include on-tablet {
+      column-count: 2; 
+    }
+
+     @include on-desktop {
+      column-count: 3; 
+    }
+  }
+
+  &Actions {
+    display: flex;
+    gap: 10px;
+  }
+}

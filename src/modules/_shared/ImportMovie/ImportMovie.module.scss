@@ -1,0 +1,18 @@
+.fileLabel {
+  cursor: pointer;
+
+  display: flex;
+
+  margin-bottom: 5px;
+  padding: 10px 16px;
+  border-radius: 8px;
+
+  background-color: var(--color-card);
+  &:hover {
+    background-color: var(--color-surface);
+  }
+}
+
+.fileInput {
+  display: none;
+}

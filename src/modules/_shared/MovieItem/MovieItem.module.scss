@@ -1,0 +1,29 @@
+.Movie {
+  box-sizing: border-box;
+  border: 1px solid var(--color-card);
+
+  &Row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: left;
+
+    background-color: var(--color-card);
+  }
+
+  &Buttons {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+
+    @include on-tablet {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &InfoContainer {
+    display: flex;
+    flex-direction: row;
+  }
+}

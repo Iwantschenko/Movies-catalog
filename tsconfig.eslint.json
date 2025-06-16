@@ -1,4 +1,17 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src", "vite.config.ts"]
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@assets/*": ["src/assets/*"],
+      "@constants/*": ["src/constants/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@styles/*": ["src/styles/*"],
+      "@models/*": ["src/types/*"],
+      "@utils/*": ["src/utils/*"],
+      "@modules/*": ["src/modules/*"],
+      "@store/*": ["src/store/*"],
+    }
+  },
+  "include": ["src", "vite.config.ts", "stylelint.config.js"]
 }

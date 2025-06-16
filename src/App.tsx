@@ -1,35 +1,35 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
+import { Outlet } from 'react-router';
+import './App.scss';
+import { useSearchParamsParamsSync } from '@hooks/useSearchParamsSync';
+import { useModal } from '@hooks/useModal';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import type { RootState } from '@store/store';
+import { Loader } from '@modules/_shared/Loader';
+import { useLoader } from '@hooks/useLoader';
 
-function App() {
-  const [count, setCount] = useState(0);
+export const App = () => {
+  useSearchParamsParamsSync();
+  const { modal } = useModal();
+  const { isLoading } = useLoader();
+  const activeTheme = useSelector(
+    (state: RootState) => state.theme.activeTheme,
+  );
+
+  document.documentElement.setAttribute('data-theme', activeTheme);
+
+  useEffect(() => {
+    document.body.classList.toggle('no-scroll', modal !== null);
+  }, [modal]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount(count => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="Container">
+      {isLoading && (
+        <div>
+          <Loader />
+        </div>
+      )}
+      <Outlet />
+    </div>
   );
-}
-
-export default App;
+};

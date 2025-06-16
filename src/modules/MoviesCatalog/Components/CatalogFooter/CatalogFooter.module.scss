@@ -1,0 +1,32 @@
+.Footer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 24px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--color-text-secondary);
+
+  @include on-tablet {
+      flex-direction: row;
+  }
+  
+  &Container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &Sort {
+    display: flex;
+    gap: 10px;
+  }
+
+  &button {
+    flex-shrink: 0;
+    width: auto;
+    
+  }
+}

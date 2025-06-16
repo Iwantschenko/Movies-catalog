@@ -1,54 +1,73 @@
-# React + TypeScript + Vite
+# 🎬 Movies Catalog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A single-page React + TypeScript application for managing a catalog of movies.  
+You can add, delete, search, and view detailed information about movies.  
+The app supports importing movie data from a `.txt` file and is fully containerized with Docker.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 📃 View list of movies with sorting and pagination  
+- 🔍 Search movies by title or actor  
+- ➕ Add and ❌ delete movies  
+- 📁 Import movies via `.txt` file  
+- 💻 Built with Vite + React + TypeScript  
+- 📦 Dockerized frontend served by Nginx  
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🔗 Demo
+
+📦 DockerHub: [https://hub.docker.com/r/iwantschenko/movies](https://hub.docker.com/r/iwantschenko/movies)
+📄 Example file: [`sample_movies.txt`](https://drive.google.com/drive/u/0/home)
+---
+
+## 🛠 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Iwantschenko/Movies-catalog.git
+cd Movies-catalog
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Run Locally (Development)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm install
+npm start
 ```
+
+
+## 🐳 Build and Run with Docker
+
+### 1. Build Docker Image
+
+```bash
+docker build -t movies-catalog .
+```
+
+### 2. Run from Docker Hub
+
+```bash
+docker run --rm \
+  -p 8080:80 \
+  -e VITE_API_URL=http://host.docker.internal:8000/api/v1 \
+  iwantschenko/movies:latest
+```
+
+> The app will be available at [http://localhost:8080](http://localhost:8080)
+
+---
+
+## ⚙️ Environment Variables
+
+| Variable         | Description                                          |
+|------------------|------------------------------------------------------|
+| `VITE_API_URL`   | Full backend URL the frontend connects to (e.g. `http://host.docker.internal:8000/api/v1`) |
+
+
+## 🪪 License
+
+[MIT](./LICENSE)

@@ -20,7 +20,7 @@ export const importMovieThunk = createAsyncThunk(
     const data = await response.json();
 
     const result: GetMoviesThunkResponseType = {
-      data: data.data,
+      data: data.data.slice(0, 5),
       total: data.meta.total,
     };
 

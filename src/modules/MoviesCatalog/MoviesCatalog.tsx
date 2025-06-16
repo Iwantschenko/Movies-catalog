@@ -19,14 +19,8 @@ export const MoviesCatalog = () => {
   const { page, sort, query } = useSelector(
     (state: RootState) => state.searchParams,
   );
-  const { isLoading, HideLoader, ShowLoader } = useLoader();
+  const { isLoading } = useLoader();
   const dispatch = useDispatch<AppDispatch>();
-
-  const handleImport = (file: File) => {
-    ShowLoader();
-    importMovies(file);
-    HideLoader();
-  };
 
   useEffect(() => {
     dispatch(getMovieThunk());
@@ -36,7 +30,7 @@ export const MoviesCatalog = () => {
     <section className={styles.Catalog}>
       <div className={styles.CatalogHeader}>
         <h1>Movies Catalog</h1>
-        <ImportMovies onUpload={handleImport} />
+        <ImportMovies onUpload={importMovies} />
         <div>
           <DefaultButton click={() => openModal('addMovie')}>
             Add new movies

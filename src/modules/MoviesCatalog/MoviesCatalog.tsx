@@ -11,6 +11,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import type { AppDispatch, RootState } from '@store/store';
 import { getMovieThunk } from '@store/asyncThunk/getMovieThunk';
+import { useLoader } from '@hooks/useLoader';
 
 export const MoviesCatalog = () => {
   const { movies, total, AddMovie, importMovies } = useMovies();
@@ -18,17 +19,24 @@ export const MoviesCatalog = () => {
   const { page, sort, query } = useSelector(
     (state: RootState) => state.searchParams,
   );
+  const { isLoading, HideLoader, ShowLoader } = useLoader();
   const dispatch = useDispatch<AppDispatch>();
+
+  const handleImport = (file: File) => {
+    ShowLoader();
+    importMovies(file);
+    HideLoader();
+  };
 
   useEffect(() => {
     dispatch(getMovieThunk());
-  }, [page, sort, query]);
+  }, [page, sort, query, isLoading]);
 
   return (
     <section className={styles.Catalog}>
       <div className={styles.CatalogHeader}>
         <h1>Movies Catalog</h1>
-        <ImportMovies onUpload={importMovies} />
+        <ImportMovies onUpload={handleImport} />
         <div>
           <DefaultButton click={() => openModal('addMovie')}>
             Add new movies

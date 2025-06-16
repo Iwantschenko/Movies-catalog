@@ -4,4 +4,4 @@ export interface SearchParamsStateType {
   page: number;
 }
 
-export type SortOrder = 'asc' | 'desc';
+export type SortOrder = 'ASC' | 'DESC';

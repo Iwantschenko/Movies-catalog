@@ -5,7 +5,7 @@ import styles from './ThemeSwitcher.module.scss';
 import sun from '@assets/icons/sun-icon.png';
 import moon from '@assets/icons/moon-icon.png';
 import type { RootState } from '@store/store';
-import { toggleTheme } from '@store/themeSlice';
+import { toggleTheme } from '@store/slices/themeSlice';
 
 export const ThemeSwitcher = () => {
   const { activeTheme } = useSelector((state: RootState) => state.theme);

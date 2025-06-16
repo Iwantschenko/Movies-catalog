@@ -6,7 +6,7 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 const initialState: SearchParamsStateType = {
   query: '',
-  sort: 'asc',
+  sort: 'ASC',
   page: 1,
 };
 

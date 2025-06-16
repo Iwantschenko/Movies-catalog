@@ -9,10 +9,10 @@ import { PaginationButtons } from '../PaginationButtons';
 
 interface Props {
   moviesCount: number;
+  perPage: number;
 }
-const PER_PAGE = 2;
 
-export const CatalogFooter: React.FC<Props> = ({ moviesCount }) => {
+export const CatalogFooter: React.FC<Props> = ({ moviesCount, perPage }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { page, sort } = useSelector((state: RootState) => state.searchParams);
 
@@ -27,7 +27,7 @@ export const CatalogFooter: React.FC<Props> = ({ moviesCount }) => {
   };
 
   const getPagesCount = () => {
-    return Math.ceil(moviesCount / PER_PAGE);
+    return Math.ceil(moviesCount / perPage);
   };
 
   return (
@@ -41,16 +41,16 @@ export const CatalogFooter: React.FC<Props> = ({ moviesCount }) => {
       <div className={styles.FooterContainer}>
         <div className={styles.FooterButtons}>
           <DefaultButton
-            isSelected={sort === 'asc'}
-            click={() => updateSort('asc')}
+            isSelected={sort === 'ASC'}
+            click={() => updateSort('ASC')}
           >
             sort by ASC
           </DefaultButton>
         </div>
         <div className={styles.FooterButtons}>
           <DefaultButton
-            isSelected={sort === 'desc'}
-            click={() => updateSort('desc')}
+            isSelected={sort === 'DESC'}
+            click={() => updateSort('DESC')}
           >
             sort by desc
           </DefaultButton>

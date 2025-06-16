@@ -1,9 +1,9 @@
-export type MoviesFormat = 'VHS' | 'DVD' | 'Blu-ray';
+export type MoviesFormat = 'VHS' | 'DVD' | 'Blu-Ray';
 
 export interface Movie {
   id: string;
   title: string;
-  releaseYear: number;
+  year: number;
   format: MoviesFormat;
-  stars: string[];
+  actors: string[];
 }

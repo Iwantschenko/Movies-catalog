@@ -22,4 +22,9 @@
       column-count: 3; 
     }
   }
+
+  &Actions {
+    display: flex;
+    gap: 10px;
+  }
 }

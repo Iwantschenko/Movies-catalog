@@ -11,7 +11,6 @@ interface Props {
   movie: Movie;
 }
 
-const API_URL = import.meta.env.VITE_API_URL;
 const AUTH_TOKEN = import.meta.env.VITE_AUTH_TOKEN;
 
 export const MovieItem: React.FC<Props> = ({ movie }) => {
@@ -36,7 +35,7 @@ export const MovieItem: React.FC<Props> = ({ movie }) => {
 
     const fetchMovie = async () => {
       try {
-        const res = await fetch(`${API_URL}/movies/${movie.id}`, {
+        const res = await fetch(`/api/movies/${movie.id}`, {
           headers: { Authorization: AUTH_TOKEN },
         });
 
